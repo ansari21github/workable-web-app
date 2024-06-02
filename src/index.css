@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.hover-underline {
+  @apply relative;
+}
+
+.hover-underline::after {
+  content: "";
+  @apply absolute w-full h-[4px] bg-current left-0 transition-transform duration-300 transform scale-x-0 origin-bottom-right;
+  bottom: -24px; /* Adjust this value to control the gap between text and underline */
+}
+
+.hover-underline.bg-light::after {
+  background-color: #DAF2DA; /* Light background color */
+}
+
+.hover-underline.bg-dark::after {
+  background-color: #333E49; /* Dark background color */
+}
+
+.hover-underline:hover::after {
+  @apply transform scale-x-100 origin-bottom-left;
+}
+
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
